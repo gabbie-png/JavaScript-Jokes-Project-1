@@ -1,13 +1,15 @@
-const resetButton = document.querySelector('#getReset');
+
 const jokeButton = document.querySelector('#getJoke');
 const jokeText = document.querySelector('.container p');
-const buttonContainer = document.querySelector('.container')
-const EMPTY_HEART = '♡'
-const FULL_HEART = '♥'
-//const data = []
+const resetButton = document.querySelector('#getReset');
+const whiteHeart = '\u2661';
+const blackHeart = '\u2665';
+const heartBtn = document.querySelector('#button');
+
+
 document.addEventListener('DOMContentLoaded', function(){})
 
-  
+// This fetches data from the API to POST to the page
 jokeButton.addEventListener('click', function (e) {
   fetch('https://official-joke-api.appspot.com/jokes/random', {
     header: {
@@ -35,10 +37,22 @@ resetButton.addEventListener('click', function pageReload(){
   location.reload()
 })
 
+
+
 //this is the like button
 
+heartBtn.addEventListener('click', toggle);
+
+function toggle() {
+  const like = heartBtn.innerHTML;
+  if(like===whiteHeart) {
+    heartBtn.innerHTML = blackHeart;
+  } else {
+    heartBtn.innerHTML = whiteHeart;
+  }
+}
   
-  //renderPunchline(jokeList)
+  
   
 
 
